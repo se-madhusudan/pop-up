@@ -12,27 +12,36 @@
             <h1>Pop Ups</h1>
             <div class="grid-container">
                 <div class="grid-itm">
-                    <img src="images/1.jpg" alt="bird" onclick="viewImg()">
+                    <img src="images/1.jpg" alt="bird" onclick="viewImg(); imgSrc()" id="img1">
                 </div>
                 <div class="grid-itm">
-                    <img src="images/2.jpg" alt="bird" onclick="viewImg()">
+                    <img src="images/2.jpg" alt="bird" onclick="viewImg(); imgSrc()" id="img2">
                 </div>
                 <div class="grid-itm">
-                    <img src="images/3.jpg" alt="bird" onclick="viewImg()">
+                    <img src="images/3.jpg" alt="bird" onclick="viewImg(); imgSrc()" id="img3">
                 </div>
                 <div class="grid-itm">
-                    <img src="images/4.jpg" alt="bird" onclick="viewImg()">
+                    <img src="images/4.jpg" alt="bird" onclick="viewImg(); imgSrc()" id="img4">
                 </div>
             </div>
         </div>
         <div class="overlay">
             <div class="pop-up">
-                <img src="images/1.jpg" alt="bird">
+                <img src="images/1.jpg" alt="bird" id="pop-up-img">
                 <p id="close" onclick="closeImg()">Close</p>
             </div>
         </div>
 
         <script>
+            // to change the image src value in pop-up-img
+            function imgSrc() {
+                let imgId = event.target.id;  // get the id of the element on which fn is called
+                // console.log(imgId);
+                let imageSource = document.getElementById(imgId).src;  //get the src value
+                // console.log(imageSource);
+                document.getElementById("pop-up-img").src = imageSource;
+            }
+
             function viewImg(){
                 var x = document.getElementsByClassName("overlay")[0];
                 x.style.display ="flex";
